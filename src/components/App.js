@@ -38,7 +38,7 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
           action="#"
           method="POST"
           className="popup__form popup__form_type_edit"
-          novalidate
+          
         >
           <h2 className="popup__title">Редактировать профиль</h2>
 
@@ -47,10 +47,10 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
               type="text"
               name="name"
               className="popup__input popup__input_name"
-              value=""
+              
               required
-              minlength="2"
-              maxlength="40"
+              
+              
             />
             <span className="popup__error" id="name-error"></span>
           </label>
@@ -60,10 +60,10 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
               type="text"
               name="about"
               className="popup__input popup__input_profession"
-              value=""
+              
               required
-              minlength="2"
-              maxlength="200"
+              
+              
             />
             <span className="popup__error" id="about-error"></span>
           </label>
@@ -77,12 +77,11 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
 
       <div className="popup popup_type_add">
         <form
-          name="add"
           action="#"
           method="POST"
           className="popup__form popup__form_type_add"
           name="add"
-          novalidate
+          
         >
           <h2 className="popup__title">Новое место</h2>
 
@@ -91,11 +90,11 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
               type="text"
               name="name"
               className="popup__input popup__input_title"
-              value=""
+              
               placeholder="Название"
               required
-              minlength="1"
-              maxlength="30"
+              
+              
             />
             <span className="popup__error" id="name-error"></span>
           </label>
@@ -105,7 +104,7 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
               type="url"
               name="link"
               className="popup__input popup__input_link"
-              value=""
+             
               placeholder="Ссылка на картинку"
               required
             />
@@ -136,8 +135,7 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
           action="#"
           method="POST"
           className="popup__form popup__form_type_avatar"
-          name="add"
-          novalidate
+          
         >
           <h2 className="popup__title">Обновить аватар</h2>
 
@@ -146,7 +144,7 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
               type="url"
               name="avatar"
               className="popup__input popup__input_link"
-              value=""
+              
               placeholder="Ссылка на аватар"
               required
             />
@@ -165,8 +163,7 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
           name="confirm"
           action="#"
           className="popup__form popup__form_type_confirm"
-          name="confirm"
-          novalidate
+          
         >
           <h2 className="popup__title">Вы уверены?</h2>
 
@@ -180,7 +177,7 @@ function App({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClic
       <template id="card-template">
         <li className="cards__list-item">
           <img src="#" alt="" className="card__image" />
-          <h2 className="card__caption"></h2>
+          <h2 className="card__caption">awf</h2>
           <div className="card__like-container">
             <button type="button" className="card__button-like"></button>
             <span className="like__counter">0</span>

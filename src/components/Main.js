@@ -13,7 +13,7 @@ export default function Main({
           <img src={url} alt="Аватар" className="profile__avatar" />
         </div>
         <div className="profile__info">
-          <h1 className="profile__title"></h1>
+          <h1 className="profile__title">fawf</h1>
           <button
             onClick={handleEditProfileClick}
             type="button"
