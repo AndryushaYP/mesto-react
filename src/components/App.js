@@ -4,11 +4,14 @@ import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
+import Card from "./Card";
+import api from "../utils/Api";
 
 function App({ onEditProfile, onAddPlace, onEditAvatar, closeAllPopup }) {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  
 
   onEditProfile = () => {
     setIsEditProfilePopupOpen(true);
@@ -126,19 +129,6 @@ function App({ onEditProfile, onAddPlace, onEditAvatar, closeAllPopup }) {
       </PopupWithForm>
 
       <ImagePopup />
-
-      <template id="card-template">
-        <li className="cards__list-item">
-          <img src="#" alt="" className="card__image" />
-          <h2 className="card__caption">awf</h2>
-          <div className="card__like-container">
-            <button type="button" className="card__button-like"></button>
-            <span className="like__counter">0</span>
-          </div>
-
-          <button type="button" className="card__delete"></button>
-        </li>
-      </template>
     </div>
   );
 }
