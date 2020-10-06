@@ -4,6 +4,7 @@ import avatar from "../images/avatar.jpg";
 import Card from "../components/Card";
 
 export default function Main({
+  onCardClick,
   handleEditAvatarClick,
   handleEditProfileClick,
   handleAddPlaceClick,
@@ -35,6 +36,7 @@ export default function Main({
     });
   });
 
+
   return (
     <main className="content">
       <section className="profile">
@@ -61,7 +63,7 @@ export default function Main({
       <section className="cards">
         <ul className="cards__list">
           {cards.map((card) => (
-            <Card key={card._id} _id={card._id} name={card.name} link={card.link} likes={card.likes.length} />
+            <Card onCardClick={onCardClick} card={card} key={card._id} _id={card._id} name={card.name} link={card.link} likes={card.likes.length} />
           ))}
         </ul>
       </section>
