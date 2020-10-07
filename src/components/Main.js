@@ -30,7 +30,7 @@ export default function Main({ onCardClick, onEditProfile, onAddPlace, onEditAva
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <main className="content">
