@@ -1,14 +1,12 @@
 import React from "react";
 
-export default function Card({onCardClick, card, link, name, likes}) {
+export default function Card({ onCardClick, card, link, name, likes }) {
+  function handleCard() {
+    onCardClick(card);
+    console.log(card);
+  }
 
-function handleCard() {
-  onCardClick(card)
-  console.log(card)
-}
-  
-
-return (
+  return (
     <li className="cards__list-item">
       <img onClick={handleCard} src={link} alt="" className="card__image" />
       <h2 className="card__caption">{name}</h2>

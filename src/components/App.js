@@ -4,46 +4,44 @@ import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
-import Card from "./Card";
-import api from "../utils/Api";
 
-function App({ onEditProfile, onAddPlace, onEditAvatar, closeAllPopup }) {
+function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   function handleCardClick(card) {
-    setSelectedCard(card)
+    setSelectedCard(card);
   }
 
-  onEditProfile = () => {
+  function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
-  };
+  }
 
-  onEditAvatar = () => {
+  function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
-  };
+  }
 
-  onAddPlace = () => {
+  function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
-  };
+  }
 
-  closeAllPopup = () => {
+  function closeAllPopup() {
     setSelectedCard(false);
     setIsEditProfilePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
-  };
+  }
 
   return (
     <div className="page">
       <Header />
       <Main
         onCardClick={handleCardClick}
-        handleEditAvatarClick={onEditAvatar}
-        handleEditProfileClick={onEditProfile}
-        handleAddPlaceClick={onAddPlace}
+        onEditAvatar={handleEditAvatarClick}
+        onEditProfile={handleEditProfileClick}
+        onAddPlace={handleAddPlaceClick}
       />
       <Footer />
 
@@ -134,7 +132,7 @@ function App({ onEditProfile, onAddPlace, onEditAvatar, closeAllPopup }) {
         </button>
       </PopupWithForm>
 
-      <ImagePopup card={selectedCard} onClose={closeAllPopup}/>
+      <ImagePopup card={selectedCard} onClose={closeAllPopup} />
     </div>
   );
 }
