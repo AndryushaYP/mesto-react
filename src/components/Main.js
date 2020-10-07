@@ -10,25 +10,26 @@ export default function Main({ onCardClick, onEditProfile, onAddPlace, onEditAva
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api.getUserData().then((res) => {
-      console.log(res);
-      setUserName(res.name);
-      setUserDescription(res.about);
-      setUserAvatar(res.avatar);
-    });
-  }, []);
+    Promise.all([api.getUserData(), api.getAllCardsList()])
+      .then((res) => {
+        const [dataUser, cardData] = res;
 
-  React.useEffect(() => {
-    api.getAllCardsList().then((cardData) => {
-      const item = cardData.map((cardEl) => ({
-        link: cardEl.link,
-        name: cardEl.name,
-        likes: cardEl.likes,
-        _id: cardEl._id,
-      }));
+        setUserName(dataUser.name);
+        setUserDescription(dataUser.about);
+        setUserAvatar(dataUser.avatar);
 
-      setCards(item);
-    });
+        const item = cardData.map((cardEl) => ({
+          link: cardEl.link,
+          name: cardEl.name,
+          likes: cardEl.likes,
+          _id: cardEl._id,
+        }));
+
+        setCards(item);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 
   return (
