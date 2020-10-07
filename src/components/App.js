@@ -52,14 +52,25 @@ function App() {
         onClose={closeAllPopup}
       >
         <label className="popup__label">
-          <input type="text" name="name" className="popup__input popup__input_name" required />
+          <input
+            placeholder="Имя"
+            type="text"
+            name="name"
+            className="popup__input popup__input_name"
+            minLength="2"
+            maxLength="40"
+            required
+          />
           <span className="popup__error" id="name-error"></span>
         </label>
 
         <label className="popup__label">
           <input
+            placeholder="Занятие"
             type="text"
             name="about"
+            minLength="2"
+            maxLength="200"
             className="popup__input popup__input_profession"
             required
           />
@@ -81,6 +92,8 @@ function App() {
           <input
             type="text"
             name="name"
+            minLength="1"
+            maxLength="30"
             className="popup__input popup__input_title"
             placeholder="Название"
             required
