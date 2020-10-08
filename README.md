@@ -1,6 +1,6 @@
 # Mesto Russia.
 
-## Портировал проект [Mesto](https://andryushayp.github.io/mesto/) на React.
+## Портировал проект [Mesto](https://github.com/AndryushaYP/mesto) на React.
 
 ## Технологии:
 
