@@ -48,6 +48,7 @@ function App() {
       <PopupWithForm
         title={"Редактировать профиль"}
         name={"edit"}
+        btnValue={"Сохранить"}
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopup}
       >
@@ -76,15 +77,12 @@ function App() {
           />
           <span className="popup__error" id="about-error"></span>
         </label>
-
-        <button type="submit" value="Сохранить" className="popup__button popup__button-profile">
-          Сохранить
-        </button>
       </PopupWithForm>
 
       <PopupWithForm
         title={"Новое место"}
         name={"add"}
+        btnValue={"Создать"}
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopup}
       >
@@ -111,15 +109,12 @@ function App() {
           />
           <span className="popup__error" id="link-error"></span>
         </label>
-
-        <button type="submit" value="Создать" className="popup__button popup__button-card">
-          Создать
-        </button>
       </PopupWithForm>
 
       <PopupWithForm
         name={"avatar"}
         title={"Обновить аватар"}
+        btnValue={"Сохранить"}
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopup}
       >
@@ -133,17 +128,14 @@ function App() {
           />
           <span className="popup__error" id="avatar-error"></span>
         </label>
-
-        <button type="submit" value="Сохранить" className="popup__button popup__button-avatar">
-          Сохранить
-        </button>
       </PopupWithForm>
 
-      <PopupWithForm name={"confirm"} title={"Вы уверены?"} onClose={closeAllPopup}>
-        <button type="submit" value="Да" className="popup__button popup__button-confirm">
-          Да
-        </button>
-      </PopupWithForm>
+      <PopupWithForm
+        name={"confirm"}
+        title={"Вы уверены?"}
+        btnValue={"Да"}
+        onClose={closeAllPopup}
+      ></PopupWithForm>
 
       <ImagePopup card={selectedCard} onClose={closeAllPopup} />
     </div>

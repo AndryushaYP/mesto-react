@@ -2,8 +2,6 @@ export class Api {
   constructor(config) {
     this._url = config.url;
     this._headers = config.headers;
-    this._name = config.name;
-    this._link = config.link;
   }
 
   getAllCardsList() {

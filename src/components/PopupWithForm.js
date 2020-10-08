@@ -1,9 +1,8 @@
 import React from "react";
 
-export default function PopupWithForm({ title, name, children, isOpen, onClose }) {
-  const className = isOpen ? `popup popup_type_${name} popup_opened` : `popup popup_type_${name}`;
+export default function PopupWithForm({ title, name, btnValue, children, isOpen, onClose }) {
   return (
-    <div className={className}>
+    <div className={`popup popup_type_${name} ${isOpen && "popup_opened"}`}>
       <form
         name={name}
         action="#"
@@ -15,6 +14,9 @@ export default function PopupWithForm({ title, name, children, isOpen, onClose }
 
         {children}
 
+        <button type="submit" value="" className="popup__button">
+          {btnValue}
+        </button>
         <button type="reset" className="popup__button-close" onClick={onClose}></button>
       </form>
     </div>
