@@ -14,4 +14,4 @@
 * ООП
 * Webpack
 
-[Mesto](https://andryushayp.github.io/mesto-react/)
+[Mesto-React](https://andryushayp.github.io/mesto-react/)
