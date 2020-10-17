@@ -3,14 +3,14 @@ import PopupWithForm from "./PopupWithForm";
 
 export default function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const urlRef = React.useRef();
-  console.log(urlRef.current);
 
   function handleSubmit(e) {
     e.preventDefault();
 
     onUpdateAvatar({
-      avatar: urlRef.current.value
+      avatar: urlRef.current.value,
     });
+    urlRef.current.value = "";
   }
 
   return (

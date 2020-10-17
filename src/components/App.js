@@ -16,8 +16,8 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
   const [currentUser, setCurrentUser] = React.useState({});
-
   const [cards, setCards] = React.useState([]);
+
   React.useEffect(() => {
     api
       .getAllCardsList()
@@ -53,7 +53,6 @@ function App() {
   function handleCardDelete(card) {
     api.deleteCard(card._id).then((res) => {
       const newCardArr = cards.filter((cardEl) => cardEl._id !== card._id);
-      console.log(res);
       setCards(newCardArr);
     });
   }

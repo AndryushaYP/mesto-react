@@ -11,6 +11,9 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       link: linkRef.current.value,
       name: nameRef.current.value,
     });
+
+    nameRef.current.value = "";
+    linkRef.current.value = "";
   }
 
   return (
