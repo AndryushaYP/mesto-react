@@ -19,10 +19,13 @@ function App() {
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api
-      .getAllCardsList()
+    Promise.all([api.getUserData(), api.getAllCardsList()])
       .then((res) => {
-        const item = res.map((cardEl) => ({
+        const [dataUser, cardData] = res;
+
+        setCurrentUser(dataUser);
+
+        const item = cardData.map((cardEl) => ({
           link: cardEl.link,
           name: cardEl.name,
           likes: cardEl.likes,
@@ -38,14 +41,10 @@ function App() {
   }, []);
 
   function handleCardLike(card) {
-    // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
-    // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCard(card._id, !isLiked).then((newCard) => {
       // Формируем новый массив на основе имеющегося, подставляя в него новую карточку
       const newCards = cards.map((cardItem) => (cardItem._id === card._id ? newCard : cardItem));
-      // Обновляем стейт
       setCards(newCards);
     });
   }
@@ -56,12 +55,6 @@ function App() {
       setCards(newCardArr);
     });
   }
-
-  React.useEffect(() => {
-    api.getUserData().then((res) => {
-      setCurrentUser(res);
-    });
-  }, []);
 
   function handleAddPlaceSubmit(newCard) {
     api.addCard(newCard).then((newCard) => {
