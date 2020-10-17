@@ -58,7 +58,7 @@ function App() {
 
   function handleAddPlaceSubmit(newCard) {
     api.addCard(newCard).then((newCard) => {
-      setCards([...cards, newCard]);
+      setCards([newCard, ...cards]);
       setIsAddPlacePopupOpen(false);
     });
   }
