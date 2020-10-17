@@ -42,39 +42,64 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
-    api.changeLikeCard(card._id, !isLiked).then((newCard) => {
-      // Формируем новый массив на основе имеющегося, подставляя в него новую карточку
-      const newCards = cards.map((cardItem) => (cardItem._id === card._id ? newCard : cardItem));
-      setCards(newCards);
-    });
+    api
+      .changeLikeCard(card._id, !isLiked)
+      .then((newCard) => {
+        // Формируем новый массив на основе имеющегося, подставляя в него новую карточку
+        const newCards = cards.map((cardItem) => (cardItem._id === card._id ? newCard : cardItem));
+        setCards(newCards);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card._id).then((res) => {
-      const newCardArr = cards.filter((cardEl) => cardEl._id !== card._id);
-      setCards(newCardArr);
-    });
+    api
+      .deleteCard(card._id)
+      .then((res) => {
+        const newCardArr = cards.filter((cardEl) => cardEl._id !== card._id);
+        setCards(newCardArr);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleAddPlaceSubmit(newCard) {
-    api.addCard(newCard).then((newCard) => {
-      setCards([newCard, ...cards]);
-      setIsAddPlacePopupOpen(false);
-    });
+    api
+      .addCard(newCard)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+        setIsAddPlacePopupOpen(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleUpdateUser(userData) {
-    api.changeUserData(userData).then((userData) => {
-      setCurrentUser(userData);
-      setIsEditProfilePopupOpen(false);
-    });
+    api
+      .changeUserData(userData)
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsEditProfilePopupOpen(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleUpdateAvatar(userData) {
-    api.changeUserAvatar(userData).then((userData) => {
-      setCurrentUser(userData);
-      setIsEditAvatarPopupOpen(false);
-    });
+    api
+      .changeUserAvatar(userData)
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsEditAvatarPopupOpen(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleCardClick(card) {
