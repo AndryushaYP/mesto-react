@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function PopupWithForm({ title, name, btnValue, children, isOpen, onClose }) {
+export default function PopupWithForm({ title, name, btnValue, children, isOpen, onClose, onSubmit }) {
   return (
     <div className={`popup popup_type_${name} ${isOpen && "popup_opened"}`}>
       <form
+        onSubmit={onSubmit}
         name={name}
         action="#"
         method="POST"

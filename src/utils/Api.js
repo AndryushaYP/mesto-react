@@ -85,7 +85,34 @@ export class Api {
     });
   }
 
-  addLikeCard(id) {
+  changeLikeCard(id, isLiked) {
+    if(isLiked) {
+      return fetch(`https://mesto.nomoreparties.co/v1/cohort-15/cards/likes/${id}`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Ошибка: ${res.status}`);
+    });
+    } else {
+      return fetch(`https://mesto.nomoreparties.co/v1/cohort-15/cards/likes/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Ошибка: ${res.status}`);
+    });
+  }
+}
+  
+
+  /*addLikeCard(id) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-15/cards/likes/${id}`, {
       method: "PUT",
       headers: this._headers,
@@ -109,7 +136,7 @@ export class Api {
 
       return Promise.reject(`Ошибка: ${res.status}`);
     });
-  }
+  }*/
 }
 
 const api = new Api({

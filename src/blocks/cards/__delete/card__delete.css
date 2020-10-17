@@ -1,3 +1,5 @@
+@import url('./_hidden/card__delete_hidden.css');
+
 .card__delete {
     background-color: transparent;
     background-image: url(../../../images/Group.svg);

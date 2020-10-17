@@ -1,3 +1,5 @@
+@import url(./_active/card__button-like_active.css);
+
 .card__button-like {
     background-color: white;
     background-image: url(../../../images/like_image.svg);
